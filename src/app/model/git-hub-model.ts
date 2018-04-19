@@ -4,4 +4,5 @@ export class GitHubModel{
     name:string;
     followers:number;
     following:number;
+    
 }
