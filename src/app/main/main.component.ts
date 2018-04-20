@@ -11,6 +11,11 @@ export class MainComponent implements OnInit {
 
   gitHubData:GitHubModel;
   gitHubDataList:Array<GitHubModel>;
+  foods = [
+    {value: 'steak-0', viewValue: 'Steak'},
+    {value: 'pizza-1', viewValue: 'Pizza'},
+    {value: 'tacos-2', viewValue: 'Tacos'}
+  ];
 
   constructor(private _gitHubService:GitHubService) {
       this.gitHubDataList = new Array<GitHubModel>();
