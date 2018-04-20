@@ -2,4 +2,12 @@
   <h1>Main</h1>
   <app-search-user (onSearchUser) = "onSearchUser($event)"></app-search-user>
   <app-git-hub-card (mouseout)="onDeleteClick(gitHubData)" *ngFor="let gitHubData of gitHubDataList" [github-data] = "gitHubData"></app-git-hub-card>
+  <mat-form-field>
+    <br>
+    <mat-select placeholder="Favorite food">
+      <mat-option *ngFor="let food of foods" [value]="food.value">
+        {{ food.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 </div>
