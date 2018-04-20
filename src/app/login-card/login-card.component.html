@@ -1,8 +1,13 @@
-<div class="horizontal">
-    <label>User</label>
-    <input type="text" [(ngModel)]="user" class="border-items"/><br>
-    <label>Password</label>
-    <input type="password" [(ngModel)]="ppass" class="border-items">
-    <br>
-    <button (click) = "sendLogin()" class="border-items">Login</button>
-</div>
+
+<mat-card class="card-login">
+        <mat-card-title>Login</mat-card-title>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="User" [(ngModel)]="user"/>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+            <input matInput type="password"  placeholder="Password" [(ngModel)]="ppass"/>
+    </mat-form-field>
+    <div class="button-login">
+        <button mat-button (click) = "sendLogin()" class="mdl-button--raised mdl-button--colored">Login<mat-icon>send</mat-icon></button>
+    </div>
+</mat-card>
