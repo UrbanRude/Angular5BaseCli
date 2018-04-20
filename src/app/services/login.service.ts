@@ -7,9 +7,6 @@ export class LoginService{
     }
 
     valUser(user:string,pass:string):boolean{
-        if((user === null || pass === null) && (user.length >= 8 || pass.length >= 8)){
-            return false;
-        }else{ return user === 'Urbano' && pass==='axity'; }
-        
+        return user === 'Urbano' && pass==='axity';         
     }
 }

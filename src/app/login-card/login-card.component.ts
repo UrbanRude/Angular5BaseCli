@@ -22,7 +22,7 @@ export class LoginComponentCard implements OnInit{
 
     sendLogin(){
         if (this._loginService.valUser(this.user,this.ppass)){
-            this._router.navigate(['./']);
+            this._router.navigate(['']);
         }else{
             alert('User y/o incorrect');
         }
