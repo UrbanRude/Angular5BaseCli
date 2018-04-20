@@ -24,6 +24,7 @@ import { PasivoComponent } from './pasivo/pasivo.component';
 import { ReactivoComponent } from './reactivo/reactivo.component';
 import { LoginComponent } from './login/login.component';
 import { LoginComponentCard } from './login-card/login-card.component';
+import { MatSelectModule} from '@angular/material/select';
 
 export const MATERIAL_COMPONENTS = [
   MatToolbarModule,
@@ -32,7 +33,8 @@ export const MATERIAL_COMPONENTS = [
   MatListModule,
   MatIconModule,
   MatInputModule,
-  MatProgressBarModule
+  MatProgressBarModule,
+  MatSelectModule
 ]
 
 @NgModule({
