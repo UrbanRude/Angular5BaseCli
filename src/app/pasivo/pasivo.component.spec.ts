@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
 import { PasivoComponent } from './pasivo.component';
+import { APP_PROVIDERS } from '../app.providers';
 
 describe('PasivoComponent', () => {
   let component: PasivoComponent;
@@ -8,7 +10,15 @@ describe('PasivoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PasivoComponent ]
+      declarations: [ 
+        PasivoComponent 
+      ],
+      imports:[
+        FormsModule
+      ],
+      providers:[
+        APP_PROVIDERS
+      ]
     })
     .compileComponents();
   }));

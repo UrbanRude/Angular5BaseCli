@@ -1,4 +1,6 @@
 import {Inject, Injectable} from '@angular/core';
+import { GitHubService } from './git-hub.service';
+import { Observer } from 'rxjs';
 
 @Injectable()
 export class LoginService{
@@ -6,7 +8,7 @@ export class LoginService{
 
     }
 
-    valUser(user:string,pass:string):boolean{
-        return user === 'Urbano' && pass==='axity';         
+    valUser(userName:string,pass:string){
+        return userName === 'Urbano' && pass === 'axity';
     }
 }
