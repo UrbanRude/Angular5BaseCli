@@ -68,20 +68,25 @@ fdescribe('LoginComponentCard', () => {
     expect(navigateSpy).toHaveBeenCalledWith(['']);
   });
 
-  it('should BadLogin', () => {
-    component.user = 'Urbeano';
-    component.ppass = 'axityd';
+  it('should BadLogin II', () => {
+    component.user = 'Urbano';
+    component.ppass = 'aqxity';
+    component.sendLogin();
     let compiled = fixture.nativeElement;
-    let navigateSpy = spyOn(compiled, 'alert');
+    let navigateSpy = spyOn(window,'alert');
+    var myMockMethod = jasmine.createSpy('alert');
+    expect(navigateSpy).toBeTruthy();
+  });
+
+  it('should BadLogin', () => {
+    component.user = 'UrbanoA'; 
+    component.ppass = 'axiti';
     component.sendLogin();
-    expect(navigateSpy).toHaveBeenCalledWith('User y/o incorrect');
-    /*let navigateSpy = spyOn(compiled,'alert');
-    component.sendLogin();
-    expect(navigateSpy).toHaveBeenCalledWith('User y/o incorrect');*/
+    expect(component.valor).toEqual(true);
   });
 
   it('should specials characters', () => {
-    component.user = '-/()=//';
+    component.user = '-/()=//'; 
     component.ppass = 'axityd';
     component.sendLogin();
     expect(component.valor).toEqual(true);
