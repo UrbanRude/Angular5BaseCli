@@ -72,9 +72,12 @@ fdescribe('LoginComponentCard', () => {
     component.user = 'Urbeano';
     component.ppass = 'axityd';
     let compiled = fixture.nativeElement;
-    let navigateSpy = spyOn(compiled,'alert');
+    let navigateSpy = spyOn(compiled, 'alert');
     component.sendLogin();
     expect(navigateSpy).toHaveBeenCalledWith('User y/o incorrect');
+    /*let navigateSpy = spyOn(compiled,'alert');
+    component.sendLogin();
+    expect(navigateSpy).toHaveBeenCalledWith('User y/o incorrect');*/
   });
 
   it('should specials characters', () => {
