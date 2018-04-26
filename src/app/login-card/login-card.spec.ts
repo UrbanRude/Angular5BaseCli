@@ -69,27 +69,28 @@ fdescribe('LoginComponentCard', () => {
   });
 
   it('should BadLogin II', () => {
-
     component.user = 'Urbano';
     component.ppass = 'axitsy';
-    component.sendLogin();
     let compiled = fixture.nativeElement;
     let navigateSpy = spyOn(window,'alert');
+    component.sendLogin();
     expect(navigateSpy).toHaveBeenCalled();
   });
   
   it('should BadLogin', () => {
     component.user = 'UrbanoA'; 
     component.ppass = 'axiti';
+    let navigateSpy = spyOn(window,'alert');
     component.sendLogin();
-    expect(component.valor).toEqual(true);
+    expect(navigateSpy).toHaveBeenCalled();
   });
 
   it('should specials characters', () => {
     component.user = '-/()=//'; 
     component.ppass = 'axityd';
+    let navigateSpy = spyOn(window,'alert');
     component.sendLogin();
-    expect(component.valor).toEqual(true);
+    expect(navigateSpy).toHaveBeenCalled();
   });
 
   it('should call sendLogin on view',() => {
