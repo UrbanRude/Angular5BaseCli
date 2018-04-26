@@ -25,5 +25,6 @@ export class LoginComponentCard implements OnInit{
 
     sendLogin(){
        this._loginService.valUser(this.user,this.ppass) ? this._router.navigate(['']) : alert('User y/o incorrect');
+        this.valor = true;
     }
 }

@@ -9,6 +9,13 @@ export class LoginService{
     }
 
     valUser(userName:string,pass:string){
-        return userName === 'Urbano' && pass === 'axity';
+        
+        var expresion = /^[a-zA-Z0-9]*$/;
+        if(expresion.test(userName) && expresion.test(pass)){
+            return userName === 'Urbano' && pass === 'axity';
+        }else{
+            return false;
+        }
+
     }
 }

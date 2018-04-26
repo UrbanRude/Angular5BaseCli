@@ -18,9 +18,6 @@ import { PasivoComponent } from '../pasivo/pasivo.component';
 import { ReactivoComponent } from '../reactivo/reactivo.component';
 import { LoginComponent } from '../login/login.component';
 
-
-
-//describe('',() => {})
 fdescribe('LoginComponentCard', () => {
   let component: LoginComponentCard;
   let fixture: ComponentFixture<LoginComponentCard>;
@@ -62,6 +59,7 @@ fdescribe('LoginComponentCard', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
   it('should Login', () => {
     component.user = 'Urbano';
     component.ppass = 'axity';
@@ -71,10 +69,28 @@ fdescribe('LoginComponentCard', () => {
   });
 
   it('should BadLogin', () => {
-    var URLsearch = window.location.href;
     component.user = 'Urbeano';
     component.ppass = 'axityd';
+    let compiled = fixture.nativeElement;
+    let navigateSpy = spyOn(compiled,'alert');
     component.sendLogin();
-    expect(URLsearch).toEqual('login');
+    expect(navigateSpy).toHaveBeenCalledWith('User y/o incorrect');
   });
+
+  it('should specials characters', () => {
+    component.user = '-/()=//';
+    component.ppass = 'axityd';
+    component.sendLogin();
+    expect(component.valor).toEqual(true);
+  });
+
+  it('should call sendLogin on view',() => {
+    component.user = 'Urbano';
+    component.ppass = 'axity';
+    let navigateSpy = spyOn((component)._router, 'navigate');
+    let compiled = fixture.nativeElement;
+    compiled.querySelector('.button-login button').click();
+    expect(navigateSpy).toHaveBeenCalledWith(['']);
+  });
+
 });
