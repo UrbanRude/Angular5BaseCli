@@ -69,15 +69,15 @@ fdescribe('LoginComponentCard', () => {
   });
 
   it('should BadLogin II', () => {
+
     component.user = 'Urbano';
-    component.ppass = 'aqxity';
+    component.ppass = 'axitsy';
     component.sendLogin();
     let compiled = fixture.nativeElement;
     let navigateSpy = spyOn(window,'alert');
-    var myMockMethod = jasmine.createSpy('alert');
-    expect(navigateSpy).toBeTruthy();
+    expect(navigateSpy).toHaveBeenCalled();
   });
-
+  
   it('should BadLogin', () => {
     component.user = 'UrbanoA'; 
     component.ppass = 'axiti';
