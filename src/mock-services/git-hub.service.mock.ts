@@ -11,21 +11,6 @@ export class GitHubServiceMock{
         
     }
 
-    /*getUserInfo(userName:string){
-        return this._httpCliente
-            .get(`${_getUsersUrl}/${userName}`,{responseType:'json'})
-            .map((x:any) => {
-                let githubObj = new GitHubModel();
-                githubObj.avatar_url = x.avatar_url;
-                githubObj.name = x.name;
-                githubObj.followers = x.followers;
-                githubObj.following = x.following;
-                githubObj.login = x.login
-                return githubObj;
-            })
-            .catch(this.handleError);
-    }*/
-
     getUserInfo(userName:string){
         let githubObj = new GitHubModel();
             githubObj.avatar_url = '';
@@ -33,9 +18,7 @@ export class GitHubServiceMock{
             githubObj.followers = 5;
             githubObj.following = 5;
             githubObj.login = 'UrbanRude';
-        /*let githubObjArr = new Array<GitHubModel>();
-        githubObjArr.push(githubObj);
-        return Observable.from(githubObjArr).catch(this.handleError);*/
+    
         return Observable.of(githubObj);
     }
 

@@ -1,0 +1,15 @@
+<div>
+  <label>User Name:</label>
+  <input type="text" id="user"  [(ngModel)]="user"><br>
+  <label>Password:</label>
+  <input type="text" id="userPass" [(ngModel)]="userPass"><br>
+  <label>Confirmar Password:</label>
+  <input type="text" id="userPassII" [(ngModel)]="userPassII"><br>
+  <label>Email:</label>
+  <input type="text" id="userEmail" [(ngModel)]="userEmail"><br>
+  <label>Nombre:</label>
+  <input type="text" id="userName" [(ngModel)]="userName"><br>
+  Aceptas terminos y condiciones<input type="checkbox" id="check"><br>
+  <button (click)="clickRegister()">Submit</button><br>
+  <div id="validar">{{validar}}</div>
+</div>

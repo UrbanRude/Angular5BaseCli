@@ -15,6 +15,9 @@ import {GitHubCardComponent} from "./git-hub-card/git-hub.card.component";
 import { PasivoComponent } from './pasivo/pasivo.component';
 import { ReactivoComponent } from './reactivo/reactivo.component';
 import { LoginComponentCard } from './login-card/login-card.component';
+import { RegisterComponent } from './register/register.component';
+import { RegisterCardComponent } from './register-card/register-card.component';
+
 
 
 describe('AppComponent', () => {
@@ -30,7 +33,9 @@ describe('AppComponent', () => {
         GitHubCardComponent,
         PasivoComponent,
         ReactivoComponent,
-        LoginComponentCard
+        LoginComponentCard,
+        RegisterComponent,
+        RegisterCardComponent
       ],
       imports:[
         BrowserAnimationsModule,
