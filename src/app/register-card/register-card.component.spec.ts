@@ -41,7 +41,7 @@ fdescribe('RegisterCardComponent', () => {
   });
 
   it('should user max ',() => {
-    let user = "UrbaaaaaNNNNo";
+    let user = "UUrbaaaaaNNNNoOO";
     let result = component.valUserName(user);
     expect(false).toEqual(result);
   });
@@ -67,7 +67,7 @@ fdescribe('RegisterCardComponent', () => {
 
   it('should check',() => {
     let compiled = fixture.nativeElement;
-    compiled.querySelector('#check').check(); 
-    expect(true).toEqual(compiled.querySelector('#check').check());
+    let result = compiled.querySelector('#check').check(); 
+    expect(true).toEqual(result);
   });
 });
