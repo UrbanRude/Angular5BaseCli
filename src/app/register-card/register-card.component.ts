@@ -14,6 +14,7 @@ export class RegisterCardComponent implements OnInit {
   userEmail:string;
   userName:string;
   validar:string;
+  checkValidar:boolean;
 
   constructor() { 
     
@@ -23,15 +24,12 @@ export class RegisterCardComponent implements OnInit {
   }
 
   clickRegister(){
-    this.checkbox = <HTMLInputElement> document.getElementById('check');
     if(this.validateRegister(this.user,this.userPass,this.userPassII,this.userEmail,this.userName) &&
-        this.checkbox.checked){
+        this.checkValidar){
       this.validar = "Ok";
-      console.log(1);
     }else{
       this.validar = "No";
-      console.log(2);
-    }console.log(3);
+    }
   }
 
   validateRegister(user:string,pass:string,passII:string,email:string,name:string){

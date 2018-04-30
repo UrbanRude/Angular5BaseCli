@@ -1,6 +1,7 @@
 <mat-card class="card-register">
+        <mat-card-title>Registro</mat-card-title>
       <mat-form-field class="example-full-width">
-          <input matInput placeholder="User:" [(ngModel)]="user">
+          <input matInput placeholder="User:" [(ngModel)]="user"  required>
       </mat-form-field>
       <mat-form-field class="example-full-width">
           <input type="password" matInput placeholder="Password:" [(ngModel)]="userPass">
@@ -14,10 +15,7 @@
       <mat-form-field class="example-full-width">
           <input matInput placeholder="Nombre:" [(ngModel)]="userName">
       </mat-form-field>
-      <div>
-          <label for="check">Aceptas terminos y condiciones</label>
-          <input type="checkbox" id="check">
-      </div>
+      <mat-checkbox [(ngModel)]="checkValidar">Aceptas terminos y condiciones</mat-checkbox>
       <button (click)="clickRegister()" mat-button>Submit</button><br>
       <div id="validar">{{validar}}</div>
 </mat-card>
