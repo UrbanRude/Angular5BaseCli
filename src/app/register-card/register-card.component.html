@@ -1,15 +1,23 @@
-<div>
-  <label>User Name:</label>
-  <input type="text" id="user"  [(ngModel)]="user"><br>
-  <label>Password:</label>
-  <input type="text" id="userPass" [(ngModel)]="userPass"><br>
-  <label>Confirmar Password:</label>
-  <input type="text" id="userPassII" [(ngModel)]="userPassII"><br>
-  <label>Email:</label>
-  <input type="text" id="userEmail" [(ngModel)]="userEmail"><br>
-  <label>Nombre:</label>
-  <input type="text" id="userName" [(ngModel)]="userName"><br>
-  Aceptas terminos y condiciones<input type="checkbox" id="check"><br>
-  <button (click)="clickRegister()">Submit</button><br>
-  <div id="validar">{{validar}}</div>
-</div>
+<mat-card class="card-register">
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="User:" [(ngModel)]="user">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+          <input type="password" matInput placeholder="Password:" [(ngModel)]="userPass">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+          <input type="password" matInput placeholder="Confirmar Password:" [(ngModel)]="userPassII">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Email:" [(ngModel)]="userEmail">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Nombre:" [(ngModel)]="userName">
+      </mat-form-field>
+      <div>
+          <label for="check">Aceptas terminos y condiciones</label>
+          <input type="checkbox" id="check">
+      </div>
+      <button (click)="clickRegister()" mat-button>Submit</button><br>
+      <div id="validar">{{validar}}</div>
+</mat-card>

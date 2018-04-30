@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterCardComponent implements OnInit {
 
+  private checkbox:HTMLInputElement;
   user:string;
   userPass:string;
   userPassII:string;
@@ -14,27 +15,38 @@ export class RegisterCardComponent implements OnInit {
   userName:string;
   validar:string;
 
-  constructor() { }
+  constructor() { 
+    
+  }
 
   ngOnInit() {
   }
 
   clickRegister(){
-    if(this.valUserName(this.user) && 
-        this.valPassword(this.userPass,this.userPassII) && 
-        this.validarEmail(this.userEmail)){
+    this.checkbox = <HTMLInputElement> document.getElementById('check');
+    if(this.validateRegister(this.user,this.userPass,this.userPassII,this.userEmail,this.userName) &&
+        this.checkbox.checked){
       this.validar = "Ok";
+      console.log(1);
     }else{
       this.validar = "No";
-    }
+      console.log(2);
+    }console.log(3);
   }
 
-  valUserName(name:string):boolean{
-    return name.length >= 5 && name.length <=15; 
+  validateRegister(user:string,pass:string,passII:string,email:string,name:string){
+    return this.valUser(user) && 
+            this.valPassword(pass,passII) && 
+            this.validarEmail(email) &&
+            this.valUserName(name); 
+  }
+
+  valUser(user:string):boolean{
+    return user.length >= 5 && user.length <=15; 
   }
 
   valPassword(pass:string,passII:string){
-    var expresion = /^[a-zA-Z0-9]*$/;
+    var expresion = /^[a-zA-Z0-9]+$/;
     return expresion.test(pass) && pass === passII;
   }
 
@@ -43,4 +55,10 @@ export class RegisterCardComponent implements OnInit {
     return emailExp.test(email);
   }
 
+  valUserName(userName:string){
+    let userNameExp = /^[a-zA-Z\s]*$/;
+    let trim = userName.trim();
+    return userNameExp.test(trim) && userName.length >= 5 && userName.length <= 15;
+  }
 }
+

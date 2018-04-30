@@ -12,7 +12,8 @@ import { MatToolbarModule,
         MatListModule,
         MatIconModule,
         MatInputModule,
-        MatProgressBarModule } from '@angular/material';
+        MatProgressBarModule, 
+        MAT_CHECKBOX_CLICK_ACTION} from '@angular/material';
 
 import { APP_PROVIDERS } from './app.providers';
 import { MainComponent } from './main/main.component';
@@ -28,6 +29,7 @@ import { MatSelectModule} from '@angular/material/select';
 import { MatCardModule} from '@angular/material/card';
 import { RegisterComponent } from './register/register.component';
 import { RegisterCardComponent } from './register-card/register-card.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 export const MATERIAL_COMPONENTS = [
   MatToolbarModule,
@@ -38,7 +40,8 @@ export const MATERIAL_COMPONENTS = [
   MatInputModule,
   MatProgressBarModule,
   MatSelectModule,
-  MatCardModule
+  MatCardModule,
+  MatCheckboxModule
 ]
 
 @NgModule({
@@ -65,7 +68,8 @@ export const MATERIAL_COMPONENTS = [
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [APP_PROVIDERS],//inyeccion de dependencias
+  providers: [APP_PROVIDERS,
+    {provide: MAT_CHECKBOX_CLICK_ACTION, useValue: 'check'}],//inyeccion de dependencias
   bootstrap: [AppComponent]
 })
 export class AppModule { }
