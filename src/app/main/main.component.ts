@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GitHubService } from '../services/git-hub.service';
 import { GitHubModel } from '../model/git-hub-model';
+import { GitHubServiceJava } from '../services/git-hub-service-java';
+import { GitHubLogin } from '../model/git-hub-formulario';
 
 @Component({
   selector: 'app-main',
@@ -9,7 +11,9 @@ import { GitHubModel } from '../model/git-hub-model';
 })
 export class MainComponent implements OnInit {
 
+  user:String;
   gitHubData:GitHubModel;
+  gitHubLogin:GitHubLogin;
   gitHubDataList:Array<GitHubModel>;
   foods = [
     {value: 'steak-0', viewValue: 'Steak'},
@@ -17,8 +21,8 @@ export class MainComponent implements OnInit {
     {value: 'tacos-2', viewValue: 'Tacos'}
   ];
 
-  constructor(private _gitHubService:GitHubService) {
-      this.gitHubDataList = new Array<GitHubModel>();
+  constructor(private _gitHubService:GitHubServiceJava) {
+      this.gitHubDataList = new Array<GitHubModel>();      
   }
 
   ngOnInit() {
