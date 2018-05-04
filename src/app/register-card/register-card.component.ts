@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GitHubServiceJava } from '../services/git-hub-service-java';
+import { GitHubLogin } from '../model/git-hub-formulario';
 
 @Component({
   selector: 'app-register-card',
@@ -14,8 +16,10 @@ export class RegisterCardComponent implements OnInit {
   userEmail:string;
   userName:string;
   validar:string;
+  checkValidar:boolean;
+  githubFormulario:GitHubLogin;
 
-  constructor() { 
+  constructor(private _githubService:GitHubServiceJava) { 
     
   }
 
@@ -24,12 +28,18 @@ export class RegisterCardComponent implements OnInit {
 
   clickRegister(){
     if(this.validateRegister(this.user,this.userPass,this.userPassII,this.userEmail,this.userName)){
+      this.githubFormulario = new GitHubLogin;
+      this.githubFormulario.user = this.user;
+      this.githubFormulario.password = this.userPass;
+      this.githubFormulario.userEmail = this.userEmail;
+      this.githubFormulario.userName = this.userName;
+      this._githubService
+          .getAddUser(this.githubFormulario)
+          .subscribe(x => {console.log(x)});
       this.validar = "Ok";
-      console.log(1);
     }else{
       this.validar = "No";
-      console.log(2);
-    }console.log(3);
+    }
   }
 
   validateRegister(user:string,pass:string,passII:string,email:string,name:string){
