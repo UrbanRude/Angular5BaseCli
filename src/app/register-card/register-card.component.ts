@@ -23,9 +23,7 @@ export class RegisterCardComponent implements OnInit {
   }
 
   clickRegister(){
-    this.checkbox = <HTMLInputElement> document.getElementById('check');
-    if(this.validateRegister(this.user,this.userPass,this.userPassII,this.userEmail,this.userName) &&
-        this.checkbox.checked){
+    if(this.validateRegister(this.user,this.userPass,this.userPassII,this.userEmail,this.userName)){
       this.validar = "Ok";
       console.log(1);
     }else{
